@@ -13,3 +13,23 @@ Branches are listed as the following:
 - compass/gulp
 - compass/grunt
 - compass/codekit
+
+### Installing Compass
+
+You can either run the following commands to install Compass. 
+
+**Bundler**
+
+If you would like to install Compass via bundler just run the command:
+
+```bash
+$ bundle install
+```
+
+**Without Bundler**
+
+If you would like to install Compass w/out bundler run the command:
+
+```bash
+$ gem install compass --pre
+```
