@@ -1,0 +1,30 @@
+{
+  "name": "sourcemaps",
+  "version": "0.0.0",
+  "description": "Demos for Source Maps using Compass 1.0.0.alpha.18 in DevTools for Chrome 33 & Firefox 29",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/grayghostvisuals/sourcemaps.git"
+  },
+  "author": "Dennis Gaebel : @gryghostvisuals",
+  "copyright": "2014",
+  "license": "free biotch",
+  "bugs": {
+    "url": "https://github.com/grayghostvisuals/sourcemaps/issues"
+  },
+  "private": false,
+  "homepage": "https://github.com/grayghostvisuals/sourcemaps",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-sass": "~0.6.0",
+    "grunt-contrib-watch": "~0.5.0",
+    "grunt-contrib-livereload": "~0.1.2",
+    "grunt-contrib-compass": "~0.7.2",
+    "matchdep": "~0.3.0"
+  }
+}
