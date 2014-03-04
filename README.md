@@ -34,7 +34,7 @@ If you would like to install Compass w/out bundler run the command:
 $ gem install compass --pre
 ```
 
-### Compass & Sourcemaps w/out Grunt, Compass and CodeKit
+### Compass & Sourcemaps w/out Grunt, Gulp and CodeKit
 
 ```bash
 sass --compass --sourcemap --watch css/src/styles.scss:css/styles.css
