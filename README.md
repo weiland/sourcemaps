@@ -1,7 +1,7 @@
 sourcemaps
 ==========
 
-Demos for Source Maps using Compass 1.0.0.alpha.18 in DevTools for Chrome 33
+Demos for Source Maps using Compass 1.0.0.alpha.19, Sass 3.3.3, Ruby 2.1.1, Node 0.10.26 and Grunt-Contrib-Compass 0.7.2 in DevTools for Chrome 33
 & Firefox 29.
 
 In this repo you'll find all relevant branches when
