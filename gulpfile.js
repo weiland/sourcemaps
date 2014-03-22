@@ -19,21 +19,22 @@
 
 // Load Gulp Plugins
 var gulp = require('gulp'),
-    sass = require('gulp-ruby-sass'), // https://github.com/sindresorhus/gulp-ruby-sass
-    livereload = require('gulp-livereload'), // https://github.com/vohof/gulp-livereload
-    lr = require('tiny-lr'), // required for LiveReload
+    compass = require('gulp-compass'), // https://github.com/appleboy/gulp-compass
+    livereload = require('gulp-livereload'),
+    lr = require('tiny-lr'),
     server = lr();
 
 // Gulp CSS Task
 gulp.task('styles', function() {
 
     return gulp.src('css/src/styles.scss')
-        .pipe(sass({
-                sourcemap: true, // http://www.youtube.com/watch?v=-ZJeOJGazgE
-                compass: true,
-                style : 'compressed'
-            })
-        )
+        .pipe(compass({
+            config_file: 'config.rb',
+            sourcemap: true,
+            debug : true,
+            css: 'css',
+            sass: 'css/src'
+        }))
         .pipe(livereload(server))
         .pipe(gulp.dest('css'));
 
