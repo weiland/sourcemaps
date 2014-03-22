@@ -1,7 +1,7 @@
 sourcemaps
 ==========
 
-Demos for Source Maps using Compass 1.0.0.alpha.18 in DevTools for Chrome 33
+Demos for Source Maps using Compass 1.0.0.alpha.19 in DevTools for Chrome 33
 & Firefox 29.
 
 In this repo you'll find all relevant branches when
@@ -34,10 +34,18 @@ If you would like to install Compass w/out bundler run the command:
 $ gem install compass --pre
 ```
 
-### Compass & Sourcemaps w/out Grunt, Gulp and CodeKit
+### Sass/Compass Sourcemaps
 
 ```bash
 sass --compass --sourcemap --watch css/src/styles.scss:css/styles.css
+```
+
+### Compass Sourcemaps
+
+use this command if shit blows up from the one above.
+
+```bash
+$ bundle exec compass compile --sourcemap
 ```
 
 You'll also need to note the line in the Compass config which allows for the
