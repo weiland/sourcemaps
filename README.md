@@ -10,6 +10,7 @@ or CodeKit.
 
 Branches are listed as the following:
 
+- compass/gulp-compass
 - compass/gulp-ruby-sass
 - compass/grunt
 - compass/codekit
