@@ -9,9 +9,10 @@
 // $Demo
 // ==========================================================================
 
-$body-bg: blue;
+$body-bg: red;
 
 body {
+    @include transition(transform .3s ease);
     background: $body-bg;
     color: white;
 }
