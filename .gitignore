@@ -15,6 +15,7 @@
 *.sw[op]
 .ruby-version
 .sass-cache
+*.css
 *.css.map
 node_modules
 bower_components
