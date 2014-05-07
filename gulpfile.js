@@ -29,7 +29,7 @@ gulp.task('styles', function() {
 
     return gulp.src('css/src/styles.scss')
         .pipe(compass({
-            config_file: 'config.rb',
+            // config_file: 'config.rb', // https://github.com/appleboy/gulp-compass/issues/24#issuecomment-42016037
             sourcemap: true,
             debug : true,
             css: 'css',
