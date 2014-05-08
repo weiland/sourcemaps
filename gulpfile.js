@@ -1,72 +1,54 @@
-// Installing Gulp
-// =======================================================
-// References
-// http://gulpjs.com
-// https://laracasts.com/lessons/gulp-this
-// http://markgoodyear.com/2014/01/getting-started-with-gulp
-// https://gist.github.com/grayghostvisuals/e85c85243a79f1ccc58a
-// http://tooling.github.io/book-of-modern-frontend-tooling/build-systems/gulp/getting-started.html
-
-// $ cd ~
-// $ npm install -g gulp
-// $ cd [projects-dir] && cd baseball-app
-// $ npm install
-
-// Installs gulp locally along with the devDependencies 
-// listed in the package.json file.
-// =======================================================
-
-
-// Load Gulp Plugins
+// Plugins
 var gulp = require('gulp'),
-    sass = require('gulp-ruby-sass'), // https://github.com/sindresorhus/gulp-ruby-sass
-    livereload = require('gulp-livereload'), // https://github.com/vohof/gulp-livereload
-    lr = require('tiny-lr'), // required for LiveReload
-    server = lr();
+	sass = require('gulp-ruby-sass'),
+	livereload = require('gulp-livereload'),
+	lr = require('tiny-lr'), // required for LiveReload
+	server = lr(),
+	connect = require('gulp-connect');
 
-// Gulp CSS Task
+
+// CSS
 gulp.task('styles', function() {
-
-    return gulp.src('css/src/styles.scss')
-        .pipe(sass({
-                sourcemap: true, // http://www.youtube.com/watch?v=-ZJeOJGazgE
-                compass: true,
-                style : 'compressed'
-            })
-        )
-        .pipe(livereload(server))
-        .pipe(gulp.dest('css'));
-
+	return gulp.src('css/src/styles.scss')
+		.pipe(sass({
+				sourcemap: true, // http://www.youtube.com/watch?v=-ZJeOJGazgE
+				compass: true
+			})
+		)
+		.pipe(livereload(server))
+		.pipe(gulp.dest('css'));
 });
 
-// Gulp HTML Task
+
+// HTML
 gulp.task('markup', function() {
-    return gulp.src('*.html')
-        .pipe(gulp.dest(''))
-        .pipe(livereload(server));
+	return gulp.src('*.html')
+		.pipe(gulp.dest(''))
+		.pipe(livereload(server));
 });
 
-// Gulp Default CLI Task
-gulp.task('default', function() {
 
-    gulp.start('styles');
+// Default Task
+gulp.task('default', ['connect', 'watch']);
 
+
+// Server
+gulp.task('connect', function() {
+	connect.server({
+		root: '.',
+		livereload: false
+	});
 });
 
-// Gulp CLI Watch Task
+
+// Watch
 gulp.task('watch', function() {
+	server.listen(35729, function (err) {
+		if (err) {
+			return console.log(err);
+		}
 
-    // Listen on port 35729
-    server.listen(35729, function (err) {
-        if (err) {
-            return console.log(err);
-        }
-
-        // Watch .scss files
-        gulp.watch('css/src/**/*.scss', ['styles']);
-
-        // Watch html files
-        gulp.watch('*.html', ['markup']);
-    });
-
+		gulp.watch('css/src/**/*.scss', ['styles']);
+		gulp.watch('*.html', ['markup']);
+	});
 });
