@@ -9,15 +9,15 @@
 // $Demo
 // ==========================================================================
 
-$body-bg: red;
+$body-bg: blue;
 $max-width: 400px;
 
 body {
-    @include transition(transform .3s ease);
-    background: $body-bg;
-    color: white;
+	@include transition(transform .3s ease);
+	background: $body-bg;
+	color: white;
 }
 
 .wrapper {
-    padding: 0 calc(50% - #{$max-width});
+	padding: 0 calc(50% - #{$max-width});
 }

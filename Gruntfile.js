@@ -1,50 +1,64 @@
 // Grunt: The JavaScript Task Runner
 module.exports = function(grunt) {
 
-    require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+	require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
-    grunt.initConfig({
+	grunt.initConfig({
 
-        pkg: grunt.file.readJSON('package.json'),
+		pkg: grunt.file.readJSON('package.json'),
 
-        watch: {
+		connect: {
+			server: {
+				options: {
+					port: 9001,
+					protocol: 'http',
+					hostname: 'localhost',
+					base: '.',
+					keepalive: false,
+					livereload: true,
+					open: true
+				}
+			}
+		},
 
-            html: {
-                files: [
-                    '**/*.html'
-                ]
-            },
+		watch: {
 
-            sass: {
-                files: ['css/src/**/*.scss'],
-                tasks: ['compass:dist']
-            },
+			html: {
+				files: [
+					'**/*.html'
+				]
+			},
 
-            css: {
-                files: ['css/**/*.css']
-            },
+			sass: {
+				files: ['css/src/**/*.scss'],
+				tasks: ['compass:dist']
+			},
 
-            livereload: {
-                files: [
-                    '**/*.html',
-                    'css/**/*.css'
-                ],
+			css: {
+				files: ['css/**/*.css']
+			},
 
-                options: {
-                    livereload: true
-                }
-            }
-        },
+			livereload: {
+				files: [
+					'**/*.html',
+					'css/**/*.css'
+				],
 
-        compass: {
-            dist: {
-                options: {
-                    config: 'config.rb',
-                    sourcemap: true
-                }
-            }
-        }
-    });
+				options: {
+					livereload: true
+				}
+			}
+		},
 
-    grunt.registerTask('default', ['watch']);
+		compass: {
+			dist: {
+				options: {
+					config: 'config.rb',
+					sourcemap: true
+				}
+			}
+		}
+	});
+
+	grunt.registerTask('default', ['connect', 'watch']);
 };
