@@ -1,25 +1,12 @@
-sourcemaps
+sourcemaps : Compass Naked CLI Commando Style
 ==========
 
-Demos for Source Maps using Compass 1.0.0.alpha.19 in DevTools for Chrome 33
+Demos for Source Maps using Compass 1.0.0.alpha.19, Sass 3.3.5, Ruby 2.1.1, Node 0.10.26 in DevTools for Chrome 34
 & Firefox 29.
 
-In this repo you'll find all relevant branches when
-using Source Maps and Compass w/either Grunt, Gulp
-or CodeKit.
-
-Branches are listed as the following:
-
-- compass/gulp-compass
-- compass/gulp-ruby-sass
-- compass/grunt
-- compass/codekit
+![demo gif](https://dl.dropboxusercontent.com/u/41114960/compass.gif)
 
 ### Installing Compass
-
-You can either run the following commands to install Compass. 
-
-**Bundler**
 
 If you would like to install Compass via bundler just run the command:
 
@@ -35,13 +22,36 @@ If you would like to install Compass w/out bundler run the command:
 $ gem install compass --pre
 ```
 
+### Install Gulp *skip if you already have gulp installed
+
+```bash
+$ npm install -g gulp
+```
+
+### Install NPM Modules
+
+```bash
+$ npm install
+```
+
+### Static Server
+
+Start the server from another tab of your CLI within the root of the project directory…
+
+```bash
+$ python -m SimpleHTTPServer
+```
+Access the server on the following URI…
+
+```bash
+$ http://127.0.0.1:8000
+```
+
 ### Sass/Compass Sourcemaps
 
 ```bash
 sass --compass --sourcemap --watch css/src/styles.scss:css/styles.css
 ```
-
-### Compass Sourcemaps
 
 use this command if shit blows up from the one above.
 
@@ -49,8 +59,8 @@ use this command if shit blows up from the one above.
 $ bundle exec compass compile --sourcemap
 ```
 
-You'll also need to note the line in the Compass config which allows for the
-mapping in your DevTools.
+**You'll also need to note the line in Compass' config.rb which allows for the
+mapping in your DevTools.**
 
 ```ruby
 sass_options = { :debug_info => true }
