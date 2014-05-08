@@ -15,8 +15,6 @@ environment = :development
 # output_style = :compressed
 # environment = :production
 
-# sass_options = { :debug_info => true }
-
 # Enables relative paths to assets via compass helper functions
 relative_assets = true
 
